@@ -5,6 +5,7 @@ import QuoteDialog from '@/components/landing/Quote';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Logo } from './Logo';
+import { usePathname } from 'next/navigation';
 import { Mail, MapPin } from 'lucide-react';
 const navigationItems = [
   { name: 'Home', href: '/' },
@@ -16,6 +17,7 @@ const navigationItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -27,32 +29,37 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-amber-200/70",
         isScrolled
-          ? "bg-white backdrop-blur-lg  shadow-lg"
-          : "bg-white/10 "
+          ? "bg-[rgba(248,239,223,0.96)] shadow-[0_10px_26px_-18px_rgba(74,44,15,0.35)]"
+          : "bg-[rgba(248,239,223,0.88)]"
       )}
     >
       <div
         className={cn(
-          "bg-gradient-to-br from-emerald-900/95 via-green-800/90 to-teal-900/95 text-white text-sm py-2 transition-all duration-300 z-10",
+          "bg-[#4b2f17] text-amber-100 text-sm py-2 transition-all duration-300 z-10 border-b border-amber-800/40",
           isScrolled ? "block" : "block"
         )}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <div></div>
-            <div className="flex items-center space-x-6">
+          <div className="flex items-center justify-center md:justify-between">
+            <div className="hidden md:block"></div>
+            <div className="flex items-center space-x-5">
+              <span className="md:hidden text-[11px] tracking-[0.16em] uppercase text-amber-100">Green Agri Corp</span>
               <div className="hidden md:flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-amber-400 " />
+                <Mail className="w-4 h-4 text-amber-300" />
                 <span >greenagricorp@gmail.com</span>
               </div>
 
               <div className="hidden md:flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-amber-400 " />
+                <MapPin className="w-4 h-4 text-amber-300" />
                 <span>Delhi (HO) • Raipur (Manufacturing)</span>
               </div>
             </div>
@@ -62,20 +69,20 @@ export default function Navbar() {
         </div>
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex items-center justify-between h-20 gap-4">
           {/* Logo Section */}
-          <Logo isScrolled={isScrolled} />
+          <Logo isScrolled={false} menuOpen={isMobileMenuOpen} />
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-1 rounded-full border border-amber-300/70 bg-[rgba(255,248,233,0.9)] px-2 py-1 shadow-[0_8px_24px_-18px_rgba(74,44,15,0.35)]">
             {navigationItems.map((item) => (
-              <Link
+              <NavItem
                 key={item.name}
                 href={item.href}
-                className={cn("px-4 py-2 hover:text-amber-300 font-medium transition-colors duration-300 rounded-lg hover:bg-green-600/95",isScrolled ? "text-gray-700" : "text-gray-200")}
-              >
-                {item.name}
-              </Link>
+                label={item.name}
+                active={pathname === item.href}
+                isScrolled={isScrolled}
+              />
             ))}
           </div>
 
@@ -88,7 +95,11 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            className={cn(
+              "lg:hidden p-2 rounded-lg border border-amber-200/80 bg-[#fff8ea] transition-colors",
+              isScrolled ? "text-[#4a2c0f] hover:bg-amber-100/80" : "text-[#4a2c0f] hover:bg-amber-100/70"
+            )}
           >
             <svg
               className="w-6 h-6"
@@ -116,45 +127,84 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
-            <div className="px-4 py-6 space-y-4">
+        <div
+          className={cn(
+            "lg:hidden overflow-hidden transition-all duration-300 relative z-10",
+            isMobileMenuOpen ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
+          )}
+        >
+          <div className="mb-3 rounded-2xl border border-amber-200 bg-[#fffaf1] shadow-[0_10px_28px_-18px_rgba(74,44,15,0.35)]">
+            <div className="px-4 py-5 space-y-2">
               {navigationItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg font-medium transition-colors duration-300"
+                  className={cn(
+                    "block rounded-lg px-4 py-3 text-sm font-medium transition-colors duration-300",
+                    pathname === item.href
+                      ? "bg-[#6b3f21] text-amber-50"
+                      : "text-[#5a2f12] hover:bg-amber-50 hover:text-[#4a2c0f]"
+                  )}
                 >
                   {item.name}
                 </Link>
               ))}
 
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-4 border-t border-amber-200">
                 <div className="mb-4">
-                  <div className="font-semibold text-gray-900 mb-1">
+                  <div className="font-semibold text-slate-900 mb-1">
                     Export Inquiry
                   </div>
-                  <div className="text-gray-600 text-sm">
+                  <div className="text-slate-600 text-sm">
                     export@greenagricorp.com
                   </div>
-                  <div className="text-gray-600 text-sm">+91-XXX-XXXX-XXX</div>
+                  <div className="text-slate-600 text-sm">+91-XXX-XXXX-XXX</div>
                 </div>
 
                 <Link
-                  href="#contact"
+                  href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full bg-green-600 hover:bg-green-700 text-amber-300 text-center px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+                  className="block w-full bg-[#6b3f21] hover:bg-[#53301a] text-amber-50 text-center px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
                 >
                   Get Quote
                 </Link>
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Top Bar with Additional Info */}
     </nav>
+  );
+}
+
+function NavItem({
+  href,
+  label,
+  active,
+  isScrolled,
+}: {
+  href: string;
+  label: string;
+  active: boolean;
+  isScrolled: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-full border border-transparent",
+        active
+          ? "bg-[#6b3f21] text-amber-50 shadow-sm"
+          : isScrolled
+            ? "text-[#5a2f12] hover:bg-amber-50 hover:text-[#4a2c0f]"
+            : "text-[#5a2f12] hover:bg-amber-50 hover:text-[#4a2c0f]"
+      )}
+      aria-current={active ? "page" : undefined}
+    >
+      {label}
+    </Link>
   );
 }

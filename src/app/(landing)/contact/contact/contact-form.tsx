@@ -18,68 +18,68 @@ export function FormComponent() {
     className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium mb-3 text-white">Full Name</label>
+            <label className="block text-sm font-medium mb-3 text-amber-50/95">Full Name</label>
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               required
-              className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white"
+              className="w-full rounded-xl border border-amber-200/40 bg-[rgba(255,248,236,0.12)] px-4 py-3 text-amber-50 placeholder:text-amber-100/60 transition focus:border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200/30"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-3 text-white">Email Address</label>
+            <label className="block text-sm font-medium mb-3 text-amber-50/95">Email Address</label>
             <input
               type="email"
               name="email"
               placeholder="your@email.com"
               required
-              className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white"
+              className="w-full rounded-xl border border-amber-200/40 bg-[rgba(255,248,236,0.12)] px-4 py-3 text-amber-50 placeholder:text-amber-100/60 transition focus:border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200/30"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-3 text-white">Company Name</label>
+          <label className="block text-sm font-medium mb-3 text-amber-50/95">Company Name</label>
           <input
             type="text"
             name="companyName"
             placeholder="Your Company"
             required
-            className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white"
+            className="w-full rounded-xl border border-amber-200/40 bg-[rgba(255,248,236,0.12)] px-4 py-3 text-amber-50 placeholder:text-amber-100/60 transition focus:border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200/30"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-3 text-white">Product Interest</label>
+          <label className="block text-sm font-medium mb-3 text-amber-50/95">Product Interest</label>
           <select
             name="productType"
             required
-            className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all text-white"
+            className="w-full rounded-xl border border-amber-200/40 bg-[rgba(255,248,236,0.12)] px-4 py-3 text-amber-50 transition focus:border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200/30"
           >
-            <option value="">Select Product Type</option>
-            <option value="non-basmati">Non-Basmati Rice</option>
-            <option value="basmati">Basmati Rice</option>
-            <option value="private-label">Private Labelling</option>
-            <option value="wholesale">Wholesale Distribution</option>
-            <option value="export">Export Services</option>
+            <option value="" className="text-slate-900">Select Product Type</option>
+            <option value="non-basmati" className="text-slate-900">Non-Basmati Rice</option>
+            <option value="basmati" className="text-slate-900">Basmati Rice</option>
+            <option value="private-label" className="text-slate-900">Private Labelling</option>
+            <option value="wholesale" className="text-slate-900">Wholesale Distribution</option>
+            <option value="export" className="text-slate-900">Export Services</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-3 text-white">Message</label>
+          <label className="block text-sm font-medium mb-3 text-amber-50/95">Message</label>
           <textarea
             name="message"
             rows={5}
             placeholder="Tell us about your requirements..."
-            className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white resize-none"
+            className="w-full resize-none rounded-xl border border-amber-200/40 bg-[rgba(255,248,236,0.12)] px-4 py-3 text-amber-50 placeholder:text-amber-100/60 transition focus:border-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200/30"
           ></textarea>
         </div>
 
       <button
         type="submit"
         disabled={pending}
-        className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-xl"
+        className="flex w-full items-center justify-center space-x-2 rounded-xl bg-amber-50 px-4 py-3 font-semibold text-[#4a2c0f] transition hover:-translate-y-0.5 hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-70"
       >
         <span>{pending ? "Sending..." : "Send Inquiry"}</span>
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export function FormComponent() {
       </button>
 
       {state?.success && (
-        <p className="text-green-400 mt-3 font-semibold">
+        <p className="mt-3 font-semibold text-amber-100">
           Message sent successfully! We will contact you soon.
         </p>
       )}

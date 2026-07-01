@@ -11,10 +11,10 @@ interface TypographyProps {
 // Main Hero Title
 export function HeroTitle({ children, className, gradient = false, color = 'white' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-green-600',
-    secondary: 'text-emerald-600',
+    primary: 'text-[#6b3f21]',
+    secondary: 'text-[#8b5d36]',
     white: 'text-white',
-    muted: 'text-gray-600'
+    muted: 'text-[#6f5a47]'
   };
 
   return (
@@ -33,15 +33,15 @@ export function HeroTitle({ children, className, gradient = false, color = 'whit
 // Section Title
 export function SectionTitle({ children, className, gradient = false, color = 'primary' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-gray-900',
-    secondary: 'text-green-600',
+    primary: 'text-[#3f2718]',
+    secondary: 'text-[#6b3f21]',
     white: 'text-white',
-    muted: 'text-gray-600'
+    muted: 'text-[#6f5a47]'
   };
 
   return (
     <h2 className={cn(
-      'text-3xl sm:text-4xl md:text-5xl font-bold leading-tight',
+      'text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight font-serif',
       gradient 
         ? 'bg-gradient-to-r from-green-600 via-green-700 to-emerald-600 bg-clip-text text-transparent'
         : colorClasses[color],
@@ -55,15 +55,15 @@ export function SectionTitle({ children, className, gradient = false, color = 'p
 // Subsection Title
 export function SubsectionTitle({ children, className, color = 'primary' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-gray-800',
-    secondary: 'text-green-600',
+    primary: 'text-[#4a2c0f]',
+    secondary: 'text-[#6b3f21]',
     white: 'text-white',
-    muted: 'text-gray-600'
+    muted: 'text-[#6f5a47]'
   };
 
   return (
     <h3 className={cn(
-      'text-2xl sm:text-3xl font-semibold leading-tight',
+      'text-2xl sm:text-3xl font-semibold leading-tight font-serif',
       colorClasses[color],
       className
     )}>
@@ -75,15 +75,15 @@ export function SubsectionTitle({ children, className, color = 'primary' }: Typo
 // Card Title
 export function CardTitle({ children, className, color = 'primary' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-gray-900',
-    secondary: 'text-green-600',
+    primary: 'text-[#3f2718]',
+    secondary: 'text-[#6b3f21]',
     white: 'text-white',
-    muted: 'text-gray-600'
+    muted: 'text-[#6f5a47]'
   };
 
   return (
     <h4 className={cn(
-      'text-xl sm:text-2xl font-semibold leading-tight',
+      'text-xl sm:text-2xl font-semibold leading-tight font-serif',
       colorClasses[color],
       className
     )}>
@@ -95,10 +95,10 @@ export function CardTitle({ children, className, color = 'primary' }: Typography
 // Subtitle/Overline
 export function Subtitle({ children, className, color = 'secondary' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-gray-600',
-    secondary: 'text-green-600',
-    white: 'text-green-300',
-    muted: 'text-gray-500'
+    primary: 'text-[#6f5a47]',
+    secondary: 'text-[#8b5d36]',
+    white: 'text-amber-100',
+    muted: 'text-[#7f7266]'
   };
 
   return (
@@ -115,10 +115,10 @@ export function Subtitle({ children, className, color = 'secondary' }: Typograph
 // Body Text
 export function BodyText({ children, className, color = 'primary' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-gray-700',
-    secondary: 'text-gray-600',
-    white: 'text-gray-200',
-    muted: 'text-gray-500'
+    primary: 'text-[#5f4b3a]',
+    secondary: 'text-[#6f5a47]',
+    white: 'text-amber-50/90',
+    muted: 'text-[#7f7266]'
   };
 
   return (
@@ -135,10 +135,10 @@ export function BodyText({ children, className, color = 'primary' }: TypographyP
 // Large Body Text
 export function LargeText({ children, className, color = 'primary' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-gray-700',
-    secondary: 'text-gray-600',
-    white: 'text-gray-200',
-    muted: 'text-gray-500'
+    primary: 'text-[#5f4b3a]',
+    secondary: 'text-[#6f5a47]',
+    white: 'text-amber-50/90',
+    muted: 'text-[#7f7266]'
   };
 
   return (
@@ -155,10 +155,10 @@ export function LargeText({ children, className, color = 'primary' }: Typography
 // Small Text
 export function SmallText({ children, className, color = 'muted' }: TypographyProps) {
   const colorClasses = {
-    primary: 'text-gray-600',
-    secondary: 'text-green-600',
-    white: 'text-gray-300',
-    muted: 'text-gray-500'
+    primary: 'text-[#6f5a47]',
+    secondary: 'text-[#8b5d36]',
+    white: 'text-amber-100/80',
+    muted: 'text-[#7f7266]'
   };
 
   return (

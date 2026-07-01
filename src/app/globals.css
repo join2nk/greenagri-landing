@@ -120,3 +120,208 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes orb-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(12px, -18px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.landing-bg {
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23673f1d' fill-opacity='0.03'%3E%3Cpath d='M18 28c5-8 13-11 22-10-6 4-9 9-10 16-5-1-9-3-12-6Z'/%3E%3Cpath d='M92 18c4 6 4 13 1 21-3-5-8-8-15-9 2-5 7-9 14-12Z'/%3E%3Cpath d='M30 88c7-2 13-1 19 4-7 1-12 4-15 10-4-3-6-8-4-14Z'/%3E%3Cpath d='M96 84c-1 7-5 12-12 16 1-6-1-11-5-16 6-3 11-3 17 0Z'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(circle at 10% 14%, rgba(163, 117, 63, 0.14), transparent 26%),
+    radial-gradient(circle at 90% 10%, rgba(92, 58, 27, 0.1), transparent 32%),
+    radial-gradient(circle at 50% 100%, rgba(198, 163, 110, 0.18), transparent 36%),
+    linear-gradient(180deg, #f8f1e3 0%, #f1e4cf 48%, #ead9bf 100%);
+  background-attachment: fixed, scroll, scroll, scroll, scroll;
+}
+
+.glass-card {
+  border: 1px solid rgba(136, 92, 42, 0.24);
+  background: linear-gradient(180deg, rgba(255, 249, 239, 0.98) 0%, rgba(247, 235, 214, 0.92) 100%);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  box-shadow:
+    0 10px 28px rgba(75, 45, 20, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.75) inset;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(128, 82, 37, 0.44);
+  box-shadow:
+    0 14px 34px rgba(62, 36, 16, 0.14),
+    0 2px 0 rgba(255, 255, 255, 0.8) inset;
+  transform: translateY(-2px);
+}
+
+.landing-orb {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(50px);
+  animation: orb-drift 8s ease-in-out infinite;
+}
+
+.landing-orb-a {
+  right: 4%;
+  top: 12%;
+  height: 220px;
+  width: 220px;
+  background: rgba(179, 124, 55, 0.2);
+}
+
+.landing-orb-b {
+  left: -4%;
+  bottom: 12%;
+  height: 180px;
+  width: 180px;
+  background: rgba(114, 69, 29, 0.18);
+  animation-delay: 1.4s;
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.7s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-gentle-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-gentle-float,
+  .landing-orb,
+  .glass-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Swiper Carousel Styling */
+.swiper {
+  --swiper-navigation-size: 24px;
+}
+
+.hero-swiper .swiper-pagination {
+  bottom: 30px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.hero-swiper .swiper-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  background: #22c55e;
+  width: 28px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
+}
+
+/* Carousel Controls */
+.swiper-button-prev,
+.swiper-button-next {
+  --swiper-navigation-color: white;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Section Styling Enhancements */
+section {
+  transition: background-color 0.3s ease;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus states for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(16, 185, 129, 0.5);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}

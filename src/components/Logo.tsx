@@ -1,69 +1,56 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 
 export function Logo({
     isScrolled = false,
+    menuOpen,
     className = "",
 }: {
     isScrolled?: boolean;
+    menuOpen?: boolean;
     className?: string;
 
 }) {
     return (
-        <motion.div
-            className="relative flex flex-col items-center space-y-4 mb-6 -mx-4"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
-        >
-            <motion.div
-            className={cn(
-                "relative w-62 rounded-b flex items-center justify-center px-6 transition-all duration-300",
-                isScrolled ? "bg-white h-14 -mt-2 -mb-20 z-0" : "bg-white h-32 shadow-lg pt-40 z-10",
-                className
-            )}
-            style={{ transform: isScrolled ? "none" : "skewY(-6deg)" }} // Remove skew if isScrolled
-            >
-            <motion.img
-                src="/images/logo.png"
-                alt="Green Agriculture Corp Logo"
+        <div className={cn("relative flex items-center", className)}>
+            <div
                 className={cn(
-                " h-25 w-auto object-contain bottom-0 transition-all duration-100 pb-6 pt-2",
-                isScrolled ? "-mb-1 relative" : "mb-0 absolute"
+                    "flex items-center justify-center rounded-[1.8rem] border border-amber-300/70 bg-[#fff8ea] px-4 py-2 shadow-[0_8px_22px_-18px_rgba(74,44,15,0.35)] transition-all duration-300 mx-3",
+                    // isScrolled ? "h-14 w-40" : "h-14 w-40"
                 )}
-                style={{ transform: isScrolled ? "none" : "skewY(6deg)" }} // Remove reverse skew if isScrolled
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-            />
-            </motion.div>
-        </motion.div>
+            >
+                <img
+                    src="/images/logo.png"
+                    alt="Green Agriculture Corp Logo"
+                    className={cn(
+                        "w-auto object-contain transition-all duration-300 mx-4 max-h-14",
+                        // isScrolled ? "h-10" : "h-10"
+                    )}
+                />
+            </div>
+        </div>
     );
 }
 
 function FooterLogo() {
     return (
-        <motion.div
+        <div
             className="relative flex flex-col items-start space-y-4 mb-6 text-start"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
         >
             <img
                 src="/images/logo.png"
                 alt="Green Agriculture Corp Logo"
                 className="h-16 w-auto object-contain"
             />
-            <p className="text-gray-800 text-sm font-semibold uppercase tracking-wide">
+            <p className="text-[#5a2f12] text-sm font-semibold uppercase tracking-[0.18em]">
                 Premium Rice Exporters
             </p>
-            <p className="text-gray-600 text-base leading-relaxed max-w-2xl">
+            <p className="text-[#6b4a2f] text-base leading-relaxed max-w-2xl">
                 Since 2016, we have been a leading manufacturer and exporter of premium Indian non-basmati rice. 
                 Our ISO-certified facility in Raipur processes over 10,000 MT annually, serving 50+ countries with 
                 consistent quality and reliable supply chain solutions.
             </p>
-        </motion.div>
+        </div>
     );
 }
 export { FooterLogo };

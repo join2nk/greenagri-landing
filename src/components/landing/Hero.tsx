@@ -118,7 +118,7 @@ export default function Hero() {
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Link
                           href="#contact"
-                          className="inline-flex items-center justify-center px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl min-w-[180px]"
+                          className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-xl min-w-[180px]"
                         >
                           Request Quote
                           <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@ export default function Hero() {
                         
                         <Link
                           href="#products"
-                          className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border border-white/30 hover:bg-white/20 transition-all duration-300 min-w-[180px]"
+                          className="inline-flex items-center justify-center px-8 py-4 bg-white/15 backdrop-blur-md text-white font-semibold rounded-lg border border-white/30 hover:bg-white/25 hover:border-white/50 transition-all duration-300 min-w-[180px]"
                         >
                           View Products
                         </Link>
@@ -167,7 +167,7 @@ export default function Hero() {
 
                     {/* Right Column - Stats Card */}
                     <div className="lg:block hidden">
-                      <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8 shadow-2xl">
+                      <div className="bg-white/15 backdrop-blur-xl border border-white/25 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:bg-white/20">
                         <div className="text-center mb-8">
                           <h3 className="text-2xl font-bold text-white mb-2">Key Performance</h3>
                           <p className="text-gray-300">Industry-leading statistics</p>
@@ -175,7 +175,7 @@ export default function Hero() {
                         
                         <div className="space-y-6">
                           {slide.stats.map((stat, index) => (
-                            <div key={index} className="flex justify-between items-center py-3 border-b border-white/20 last:border-b-0">
+                            <div key={index} className="flex justify-between items-center py-3 border-b border-white/20 last:border-b-0 hover:bg-white/5 px-2 rounded transition-colors duration-300">
                               <span className="text-gray-300 font-medium">{stat.label}</span>
                               <span className="text-white font-bold text-lg">{stat.value}</span>
                             </div>
@@ -185,9 +185,12 @@ export default function Hero() {
                         <div className="mt-8 pt-6 border-t border-white/20 text-center">
                           <Link
                             href="#about"
-                            className="text-green-300 hover:text-green-200 font-medium transition-colors duration-300"
+                            className="text-green-300 hover:text-green-200 font-medium transition-colors duration-300 inline-flex items-center gap-2"
                           >
-                            Learn More About Us →
+                            Learn More About Us 
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
                           </Link>
                         </div>
                       </div>

@@ -1,159 +1,79 @@
-import Link from 'next/link';
+import Link from "next/link";
+
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Quality", href: "/quality" },
+  { label: "Contact", href: "/contact" },
+];
+
+const highlights = [
+  "Established in 2016",
+  "40+ years of combined industry expertise",
+  "10,000+ MT annual processing capacity",
+  "Delhi office and Raipur manufacturing base",
+];
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1920&h=1080&fit=crop')` 
-        }}
-      />
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/95 via-green-800/90 to-teal-900/95" />
-      
-      {/* Additional decorative overlays */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-500/8 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-green-400/5 rounded-full blur-2xl"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="mb-6">
-             <div className=' mb-4'>
-             <img src="/images/logo.png" alt="" />
-             </div>
-               
-            
-              <p className="text-emerald-50 text-lg leading-relaxed mb-6 backdrop-blur-sm bg-black/10 p-4 rounded-lg">
-                Exporting premium Indian rice to the world with state-of-the-art facilities ensuring highest quality grains. 
-                Trusted by leading brands for our unwavering commitment to excellence and sustainable agriculture.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-emerald-800/70 to-green-700/50 backdrop-blur-md p-4 rounded-2xl border border-emerald-600/40 hover:border-amber-400/60 transition-all duration-300 shadow-lg">
-                <h4 className="text-amber-300 font-semibold mb-2">Founded</h4>
-                <p className="text-emerald-100">2016</p>
-              </div>
-              <div className="bg-gradient-to-br from-emerald-800/70 to-green-700/50 backdrop-blur-md p-4 rounded-2xl border border-emerald-600/40 hover:border-amber-400/60 transition-all duration-300 shadow-lg">
-                <h4 className="text-amber-300 font-semibold mb-2">Experience</h4>
-                <p className="text-emerald-100">40+ Years</p>
-              </div>
-              <div className="bg-gradient-to-br from-emerald-800/70 to-green-700/50 backdrop-blur-md p-4 rounded-2xl border border-emerald-600/40 hover:border-amber-400/60 transition-all duration-300 shadow-lg">
-                <h4 className="text-amber-300 font-semibold mb-2">Head Office</h4>
-                <p className="text-emerald-100">Delhi, India</p>
-              </div>
-              <div className="bg-gradient-to-br from-emerald-800/70 to-green-700/50 backdrop-blur-md p-4 rounded-2xl border border-emerald-600/40 hover:border-amber-400/60 transition-all duration-300 shadow-lg">
-                <h4 className="text-amber-300 font-semibold mb-2">Factory</h4>
-                <p className="text-emerald-100">Raipur ,Chhattisgarh</p>
-              </div>
-            </div>
-          </div>
+    <footer className="relative overflow-hidden border-t border-slate-900/40 text-white">
+      <div className="absolute inset-0">
+        <img
+          src="/images/footer.jpeg"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover grayscale brightness-[0.38] contrast-[1.15] saturate-0"
+        />
+        <div className="absolute inset-0 bg-slate-950/78" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/92 via-slate-950/70 to-slate-900/55" />
+      </div>
 
-          {/* Quick Links */}
-          <div className="bg-gradient-to-br from-green-800/50 to-emerald-800/40 backdrop-blur-md p-6 rounded-2xl border border-emerald-600/50 hover:border-amber-400/70 transition-all duration-300 shadow-xl">
-            <h4 className="text-xl font-bold mb-6 text-amber-300 flex items-center">
-              <span className="w-2 h-8 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full mr-3 shadow-lg"></span>
-              Quick Links
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#about" className="text-emerald-100 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-amber-500 rounded-full mr-3 group-hover:scale-125 group-hover:bg-amber-400 transition-all duration-300"></span>
-                  About Us
-                </Link>
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.9fr] lg:px-8">
+        <section>
+          <img src="/images/logo.png" alt="Green Agri Corp logo" className="h-14 w-auto" />
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-amber-50/90">
+            Green Agri Corp Pvt Ltd is a rice manufacturing and export company focused on dependable supply, quality-first operations, and long-term buyer partnerships.
+          </p>
+          <ul className="mt-6 grid gap-2 text-sm text-amber-200/90">
+            {highlights.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-amber-300" />
+                <span>{item}</span>
               </li>
-              <li>
-                <Link href="#products" className="text-emerald-100 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-amber-500 rounded-full mr-3 group-hover:scale-125 group-hover:bg-amber-400 transition-all duration-300"></span>
-                  Our Products
-                </Link>
-              </li>
-              <li>
-                <Link href="#services" className="text-emerald-100 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-amber-500 rounded-full mr-3 group-hover:scale-125 group-hover:bg-amber-400 transition-all duration-300"></span>
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#sustainability" className="text-emerald-100 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-amber-500 rounded-full mr-3 group-hover:scale-125 group-hover:bg-amber-400 transition-all duration-300"></span>
-                  Sustainability
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-emerald-100 hover:text-amber-300 transition-colors duration-300 flex items-center group">
-                  <span className="w-2 h-2 bg-amber-500 rounded-full mr-3 group-hover:scale-125 group-hover:bg-amber-400 transition-all duration-300"></span>
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
+        </section>
 
-          {/* Contact Info */}
-          <div className="bg-gradient-to-br from-green-800/50 to-emerald-800/40 backdrop-blur-md p-6 rounded-2xl border border-emerald-600/50 hover:border-amber-400/70 transition-all duration-300 shadow-xl">
-            <h4 className="text-xl font-bold mb-6 text-amber-300 flex items-center">
-              <span className="w-2 h-8 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full mr-3 shadow-lg"></span>
-              Contact Info
-            </h4>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3 group">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-500/40 to-yellow-500/30 rounded-lg flex items-center justify-center group-hover:from-amber-400/50 group-hover:to-yellow-400/40 transition-all duration-300 border border-amber-500/40 backdrop-blur-sm">
-                  <span className="text-amber-300 text-lg">📧</span>
-                </div>
-                <span className="text-emerald-100 group-hover:text-amber-200 transition-colors duration-300">greenagricorp@gmail.com</span>
-              </div>
-              <div className="flex items-center space-x-3 group">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-500/40 to-yellow-500/30 rounded-lg flex items-center justify-center group-hover:from-amber-400/50 group-hover:to-yellow-400/40 transition-all duration-300 border border-amber-500/40 backdrop-blur-sm">
-                  <span className="text-amber-300 text-lg">📞</span>
-                </div>
-                <span className="text-emerald-100 group-hover:text-amber-200 transition-colors duration-300">+91-XXX-XXX-XXXX</span>
-              </div>
-              <div className="flex items-center space-x-3 group">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-500/40 to-yellow-500/30 rounded-lg flex items-center justify-center group-hover:from-amber-400/50 group-hover:to-yellow-400/40 transition-all duration-300 border border-amber-500/40 backdrop-blur-sm">
-                  <span className="text-amber-300 text-lg">📍</span>
-                </div>
-                <span className="text-emerald-100 group-hover:text-amber-200 transition-colors duration-300">Delhi, India</span>
-              </div>
-              <div className="flex items-center space-x-3 group">
-                <div className="w-10 h-10 bg-gradient-to-br from-amber-500/40 to-yellow-500/30 rounded-lg flex items-center justify-center group-hover:from-amber-400/50 group-hover:to-yellow-400/40 transition-all duration-300 border border-amber-500/40 backdrop-blur-sm">
-                  <span className="text-amber-300 text-lg">🏭</span>
-                </div>
-                <span className="text-emerald-100 group-hover:text-amber-200 transition-colors duration-300">Raipur, Chhattisgarh</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <section>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-200">Navigation</h3>
+          <nav className="mt-5 grid gap-3 text-sm">
+            {quickLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-amber-50/95 transition hover:text-amber-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </section>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 rounded-lg px-6">
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
-            <div className="text-center lg:text-left">
-              <p className="text-emerald-100 font-medium">
-                © 2025 Green Agri Corp Pvt Ltd. All rights reserved.
-              </p>
-              <p className="text-emerald-200 text-sm mt-1">
-                Committed to sustainable agriculture and global food security.
-              </p>
-            </div>
-            <div className="text-center lg:text-right">
-              <p className="text-emerald-100 text-sm mb-2">Trusted by leading exporters:</p>
-              <div className="flex flex-wrap justify-center lg:justify-end gap-4 text-amber-300 text-sm font-medium">
-                <span className="hover:text-amber-200 transition-colors duration-300 cursor-pointer">Olem</span>
-                <span className="text-emerald-300">•</span>
-                <span className="hover:text-amber-200 transition-colors duration-300 cursor-pointer">Shah Namji Nagsi Exports</span>
-                <span className="text-emerald-300">•</span>
-                <span className="hover:text-amber-200 transition-colors duration-300 cursor-pointer">Longulf Exports</span>
-                <span className="text-emerald-300">•</span>
-                <span className="hover:text-amber-200 transition-colors duration-300 cursor-pointer">Shri Ram Foods</span>
-              </div>
-            </div>
+        <section>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-200">Contact</h3>
+          <div className="mt-5 space-y-3 text-sm text-amber-50/95">
+            <p>greenagricorp@gmail.com</p>
+            <p>+91-XXX-XXX-XXXX</p>
+            <p>Delhi, India (Corporate Office)</p>
+            <p>Raipur, Chhattisgarh (Manufacturing)</p>
           </div>
+        </section>
+      </div>
+
+      <div className="relative border-t border-amber-800/40">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-amber-200/80 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <p>© 2026 Green Agri Corp Pvt Ltd. All rights reserved.</p>
+          <p>Premium Indian rice manufacturing and export partner.</p>
         </div>
       </div>
     </footer>

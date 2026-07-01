@@ -10,11 +10,11 @@ interface SectionProps {
 }
 
 const backgroundVariants = {
-  white: 'bg-white',
-  gray: 'bg-gray-50',
-  green: 'bg-gradient-to-br from-green-50 to-emerald-50',
-  gradient: 'bg-gradient-to-br from-green-900/80 via-emerald-800/70 to-teal-900/80',
-  dark: 'bg-gray-900'
+  white: 'bg-[#fcf8f1]',
+  gray: 'bg-[#f4ece1]',
+  green: 'bg-gradient-to-br from-[#f8f0e4] to-[#efe1c9]',
+  gradient: 'bg-gradient-to-br from-[#3f2518] via-[#6a4328] to-[#24150f]',
+  dark: 'bg-[#24150f]'
 };
 
 const paddingVariants = {

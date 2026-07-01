@@ -39,9 +39,9 @@ import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 export function Products() {
   return (
-    <div className="space-y-8 py-2">
+    <div className="space-y-8 py-8">
       <h2
-        className="text-gray-800 text-center text-2xl md:text-2xl lg:text-5xl p-8 font-semibold"
+        className="text-gray-800 text-center text-2xl md:text-3xl lg:text-5xl p-8 font-semibold leading-tight"
         data-aos="fade-up"
       >
         A Range of Our Rice Varieties
@@ -57,17 +57,18 @@ export function Products() {
             <CarouselItem key={product.id} className="basis-64">
               {/* <div className="p-2"> */}
 
-              <Card className="overflow-hidden rounded-lg shadow-lg group">
+              <Card className="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl group transition-all duration-500 border border-emerald-100/40 hover:border-emerald-200/60">
                 {/* Product Image */}
-                <div className="relative w-full h-52 overflow-hidden">
+                <div className="relative w-full h-52 overflow-hidden bg-gradient-to-br from-slate-50 to-emerald-50">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="object-cover w-full h-full transition-transform transform group-hover:scale-105"
+                    className="object-cover w-full h-full transition-transform duration-500 transform group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold text-gray-900 mt-3">
+                  <CardTitle className="text-lg font-semibold text-gray-900 mt-3 group-hover:text-emerald-700 transition-colors duration-300">
                     {product.name}
                   </CardTitle>
                   <CardDescription>

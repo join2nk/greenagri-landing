@@ -1,0 +1,17 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="leaf-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <!-- Leaf 1 -->
+      <path d="M 30 50 Q 35 40 40 50 Q 35 60 30 50" fill="#10b981" opacity="0.04"/>
+      <!-- Leaf 2 -->
+      <path d="M 80 20 Q 90 10 100 20 Q 90 35 80 20" fill="#06b6d4" opacity="0.03"/>
+      <!-- Leaf 3 -->
+      <path d="M 150 100 Q 160 85 170 100 Q 160 120 150 100" fill="#10b981" opacity="0.04"/>
+      <!-- Leaf 4 -->
+      <path d="M 50 150 Q 55 140 65 150 Q 55 165 50 150" fill="#06b6d4" opacity="0.03"/>
+      <!-- Leaf 5 -->
+      <path d="M 120 160 Q 130 150 140 160 Q 130 175 120 160" fill="#10b981" opacity="0.04"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#leaf-pattern)"/>
+</svg>

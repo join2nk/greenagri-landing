@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FooterOld from "@/components/Footer-old";
 import { AnalyticsProvider, AnalyticsTracker } from "@/app/(analytics)/_components/analytics-provider";
 import { Toaster } from "@/components/ui/sonner"
 export default function LayoutLanding({ children }: { children: React.ReactNode }) {
@@ -9,15 +8,15 @@ export default function LayoutLanding({ children }: { children: React.ReactNode 
     <>
       <Navbar />
       {/* <div className="p-14" /> */}
+      <div className="h-6"></div>
       <main>
         <AnalyticsProvider>
           {children}
           <AnalyticsTracker />
         </AnalyticsProvider>
       </main>
-      <FooterOld />
+      <Footer />
       <Toaster  position='top-left' />
-      {/* <Footer /> */}
     </>
   )
 }
